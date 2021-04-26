@@ -1,8 +1,10 @@
 <html>
 
 <body>
-
-	teste
+	<label>Texto da noticia</label>
+	<input placeholder="texto da notícia" />
+	<div th:case="'AGUARDANDO'" class="card-header alert-warning" th:text="${pedido.nomeProduto}">Noticia</div>
+	
 </body>
 
 </html>
