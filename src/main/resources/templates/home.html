@@ -1,10 +1,13 @@
 <html>
 
 <body>
-	<label>Texto da noticia</label>
-	<input placeholder="texto da notícia" />
-	<div th:case="'AGUARDANDO'" class="card-header alert-warning" th:text="${pedido.nomeProduto}">Noticia</div>
+	<div>
+		<a class="nav-link" th:href="@{/api/noticias/publicadas}">Noticias publicadas</a>
+	</div>
 	
+	<div>
+		<a class="nav-link" th:href="@{/api/noticias/nova}">Publicar notpicia</a>
+	</div>
 </body>
 
 </html>

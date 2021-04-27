@@ -12,7 +12,7 @@ public class Noticia {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String autor;
+	private String nomeAutor;
 	private String texto;
 	private LocalDate data;
 	
@@ -22,21 +22,27 @@ public class Noticia {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getAutor() {
-		return autor;
+		
+	public String getNomeAutor() {
+		return nomeAutor;
 	}
-	public void setAutor(String autor) {
-		this.autor = autor;
+	
+	public void setNomeAutor(String nomeAutor) {
+		this.nomeAutor = nomeAutor;
 	}
+	
 	public String getTexto() {
 		return texto;
 	}
+	
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
+	
 	public LocalDate getData() {
 		return data;
 	}
+	
 	public void setData(LocalDate data) {
 		this.data = data;
 	}

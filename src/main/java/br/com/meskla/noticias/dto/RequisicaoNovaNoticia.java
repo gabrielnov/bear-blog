@@ -10,19 +10,29 @@ public class RequisicaoNovaNoticia {
 	
 
 	@NotBlank
-	private String autor;
+	private String nomeAutor;
 	
 	@NotBlank
 	private String texto;
 	
 	private LocalDate data;
 
-	public String getAutor() {
-		return autor;
+
+
+	public String getNomeAutor() {
+		return nomeAutor;
 	}
 
-	public void setAutor(String autor) {
-		this.autor = autor;
+	public void setNomeAutor(String nomeAutor) {
+		this.nomeAutor = nomeAutor;
+	}
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 
 	public String getTexto() {
@@ -35,7 +45,7 @@ public class RequisicaoNovaNoticia {
 	
 	public Noticia toNoticia() {
 		Noticia noticia = new Noticia();
-		noticia.setAutor(autor);
+		noticia.setNomeAutor(nomeAutor);
 		noticia.setTexto(texto);
 		noticia.setData(LocalDate.now());
 		return noticia;

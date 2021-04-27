@@ -1,21 +1,25 @@
 <head>
 <h1> Cadastrar nova noticia</h1>
 <body>
+<div>
 
-	<div>
-		<label > Informe o nome do autor: </label>
-		<input placeholder="nome do autor"/>
+	<form th:action="@{/noticia/nova}" th:object="${requisicaoNovaNoticia}" class="card-body" method="post">
+	<div class="form-group">
+		<div>
+			<label for="nomeAutor"> Nome do autor: </label>
+			<input th:field="*{nomeAutor}" class="form-control" placeholder="nome do autor"/>
+		</div>
+				
+		<div>	
+			<label for="texto"> Digite o texto: </label>
+			<input th:field="*{texto}" class="form-control" placeholder="texto da noticia"/>
+		</div>
 	</div>
-	
-	<div>	
-		<label > Digite o texto: </label>
-		<input placeholder="texto da noticia"/>
-	</div>
-		
-	<div>
-		<button type="submit">Publicar</button>
-	</div>
-	
+		<div>
+			<button type="submit">Publicar</button>
+		</div>
+	</form>
+</div>
 </body>
 
 
