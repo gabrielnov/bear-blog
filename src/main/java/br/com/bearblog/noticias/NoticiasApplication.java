@@ -1,4 +1,4 @@
-package br.com.meskla.noticias;
+package br.com.bearblog.noticias;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package br.com.meskla.noticias.rest;
+package br.com.bearblog.noticias.rest;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.meskla.noticias.model.Noticia;
-import br.com.meskla.noticias.repository.NoticiaRepository;
+import br.com.bearblog.noticias.model.Noticia;
+import br.com.bearblog.noticias.repository.NoticiaRepository;
 
 @RestController
 @RequestMapping("/api/noticias")

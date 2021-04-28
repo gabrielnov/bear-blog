@@ -1,6 +1,7 @@
-package br.com.meskla.noticias.model;
+package br.com.bearblog.noticias.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,7 @@ public class Noticia {
 	private String nomeAutor;
 	private String titulo;
 	private String texto;
-	private LocalDate data;
+	private LocalDateTime data;
 	
 	public Long getId() {
 		return id;
@@ -31,6 +32,13 @@ public class Noticia {
 	public void setNomeAutor(String nomeAutor) {
 		this.nomeAutor = nomeAutor;
 	}
+		
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 	
 	public String getTexto() {
 		return texto;
@@ -40,12 +48,12 @@ public class Noticia {
 		this.texto = texto;
 	}
 	
-	public LocalDate getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
 	
-	public void setData(LocalDate data) {
-		this.data = data;
+	public void setData(LocalDateTime localDateTime) {
+		this.data = localDateTime;
 	}
 	
 	

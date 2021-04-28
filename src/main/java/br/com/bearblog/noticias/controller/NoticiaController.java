@@ -1,4 +1,4 @@
-package br.com.meskla.noticias.controller;
+package br.com.bearblog.noticias.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.meskla.noticias.dto.RequisicaoNovaNoticia;
-import br.com.meskla.noticias.model.Noticia;
-import br.com.meskla.noticias.repository.NoticiaRepository;
+import br.com.bearblog.noticias.dto.RequisicaoNovaNoticia;
+import br.com.bearblog.noticias.model.Noticia;
+import br.com.bearblog.noticias.repository.NoticiaRepository;
 
 
 @Controller
@@ -28,7 +28,7 @@ public class NoticiaController {
 		Noticia noticia = requisicao.toNoticia();
 		noticiaRepository.save(noticia);
 	
-		return "redirect:/api/noticias/publicadas";
+		return "redirect:/home";
 	}
 	
 	

@@ -1,8 +1,8 @@
-package br.com.meskla.noticias.repository;
+package br.com.bearblog.noticias.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.meskla.noticias.model.Noticia;
+import br.com.bearblog.noticias.model.Noticia;
 
 
 //implementacao da interface repository
