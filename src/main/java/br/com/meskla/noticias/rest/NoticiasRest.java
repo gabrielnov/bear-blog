@@ -17,7 +17,7 @@ public class NoticiasRest {
 	@Autowired
 	private NoticiaRepository noticiaRepository;
 	
-	//metodo da interface repository
+	// método da interface repository
 	@GetMapping("publicadas")
 	public List<Noticia> getNoticias(){
 		return noticiaRepository.findAll();

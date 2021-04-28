@@ -13,6 +13,7 @@ public class Noticia {
 	@GeneratedValue
 	private Long id;
 	private String nomeAutor;
+	private String titulo;
 	private String texto;
 	private LocalDate data;
 	
