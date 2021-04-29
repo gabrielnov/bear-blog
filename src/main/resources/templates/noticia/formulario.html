@@ -2,6 +2,8 @@
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+</head>
+<div th:replace="~{base :: navegacao}"></div>
 <h1 class="ml-4"> Cadastrar nova noticia</h1>
 
 <body>
@@ -23,12 +25,11 @@
 			<textarea class="form-control" th:field="*{texto}" placeholder="texto da noticia"/>
 		</div>
 
-		
 		<button type="submit" class="btn btn-secondary ml-5">Publicar</button>
 	
 	</form>
 
 
 </body>
-</head>
+
 </html>

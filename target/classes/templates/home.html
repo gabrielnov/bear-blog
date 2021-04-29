@@ -1,16 +1,14 @@
 <html>
 <head>
+<title>BearBlog</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5 sticky-top">
-		<a style= "color: #ffffff; font-size: 25" class="nav-brand mr-5"> BearBlog</a>
-		<a style="color: #ffffff" class="nav-link" href="/home">Início</a>
-		<a style="color: #ffffff" class="nav-link" href="/noticia/formulario">Publicar</a>
-	</nav>
-	
+
+
+<div th:replace="~{base :: navegacao}"></div> 
+
 <div class="container">	
 
 	<div class="card text-center mx-auto" style="width: 50rem;">
@@ -26,8 +24,8 @@
 				<h6 class="card-subtitle mb-2 text-muted" th:text="${noticia.nomeAutor}"> Autor</h6>
 			</div>
 			
-			<div >				
-				<p class="card-text" th:text="${noticia.texto}">Texto da notícia</p>							
+			<div>				
+				<p style="white-space: pre-wrap" class="card-text" th:text="${noticia.texto}">Texto da notícia</p>							
 			</div>
 			
 			<div class="card-footer">
@@ -39,6 +37,7 @@
 		
 	</div>
 </div>
+
 
 </body>
 

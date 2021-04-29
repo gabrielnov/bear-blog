@@ -1,5 +1,7 @@
 package br.com.bearblog.noticias.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +26,7 @@ public class NoticiaController {
 	}
 	
 	@PostMapping("nova") 
-	public String nova(RequisicaoNovaNoticia requisicao) {
+	public String nova(@Valid RequisicaoNovaNoticia requisicao) {
 		Noticia noticia = requisicao.toNoticia();
 		noticiaRepository.save(noticia);
 	

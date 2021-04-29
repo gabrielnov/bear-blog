@@ -17,10 +17,6 @@ public class RequisicaoNovaNoticia {
 	
 	@NotBlank
 	private String texto;
-	
-	private LocalDate data;
-
-
 
 	public String getNomeAutor() {
 		return nomeAutor;
@@ -28,14 +24,6 @@ public class RequisicaoNovaNoticia {
 
 	public void setNomeAutor(String nomeAutor) {
 		this.nomeAutor = nomeAutor;
-	}
-
-	public LocalDate getData() {
-		return data;
-	}
-
-	public void setData(LocalDate data) {
-		this.data = data;
 	}
 
 	public String getTexto() {

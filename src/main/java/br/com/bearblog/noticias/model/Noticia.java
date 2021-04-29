@@ -4,19 +4,26 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Noticia {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nomeAutor;
 	private String titulo;
 	private String texto;
 	private LocalDateTime data;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Autor autor;
 	
 	public Long getId() {
 		return id;

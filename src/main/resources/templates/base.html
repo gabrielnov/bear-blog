@@ -1,8 +1,11 @@
 <head th:fragment="head">
-<meta charset="UTF-8" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
+<body>
+	<nav th:fragment="navegacao" class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark mb-3">
+		<a style= "color: #ffffff; font-size: 25" class="nav-brand mr-5"> BearBlog</a>
+		<a style="color: #ffffff" class="nav-link" href="/home">Início</a>
+		<a style="color: #ffffff" class="nav-link" href="/noticia/formulario">Publicar</a>
+	</nav>
+</body>
