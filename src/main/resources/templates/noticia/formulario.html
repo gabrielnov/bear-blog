@@ -4,32 +4,32 @@
 
 </head>
 <div th:replace="~{base :: navegacao}"></div>
-<h1 class="ml-4"> Cadastrar nova noticia</h1>
+<h1 class="ml-4 text-center mx-auto"> Cadastrar nova noticia</h1>
 
 <body>
 
-	<form th:action="@{/noticia/nova}" th:object="${requisicaoNovaNoticia}" method="post">
-		<div class="form-group col-5">		
-			<label for="titulo"> Título da notícia: </label>
-			<input th:field="*{titulo}" class="form-control" placeholder="Título"/>
-			<small id="tituloAjuda" class="form-text text-muted"> Escolha um título chamativo que destaque sua notícia</small>
-		</div>	
+<div class="container">
+	<div class="card text-center mx-auto mt-5 ml-2" style="width: 70rem;">	
 	
-		<div class="form-group col-3">
-			<label for="nomeAutor"> Nome do autor: </label>
-			<input th:field="*{nomeAutor}" class="form-control" placeholder="nome do autor"/>
-		</div>
-				
-		<div class="form-group col-5">	
-			<label for="texto"> Digite o texto: </label>
-			<textarea class="form-control" th:field="*{texto}" placeholder="texto da noticia"/>
-		</div>
-
-		<button type="submit" class="btn btn-secondary ml-5">Publicar</button>
+		<form  th:action="@{/noticia/nova}" th:object="${requisicaoNovaNoticia}" method="post">
+		
+			<div class="mx-auto row mb-4 mt-3">		
+				<label for="titulo" class="col-sm-3 col-form-label "> Título da notícia: </label>
+				<input th:field="*{titulo}" class=" form-control col-sm-5 " placeholder="Título da notícia"/>
+				<small id="tituloAjuda" class="col-sm-3 form-text text-muted"> Escolha um título chamativo que destaque sua notícia</small>
+			</div>			
+			
+			<div class="mx-auto row mb-3 mt-3">	
+				<label for="texto" class="col-sm-3"> Digite o texto: </label>
+				<textarea class="form-control col-sm-7 rows" rows="11" th:field="*{texto}" placeholder="texto da noticia"/>
+			</div>
 	
-	</form>
-
-
+			<button type="submit" class="btn btn-secondary ml-5">Publicar</button>
+		
+		</form>
+	
+	</div>
+</div>
 </body>
 
 </html>

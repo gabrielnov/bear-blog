@@ -22,8 +22,8 @@ public class Noticia  {
 	private String texto;
 	private LocalDateTime data;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Autor autor;
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	private Autor autor;
 	
 	public Long getId() {
 		return id;
