@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Noticia {
+public class Noticia  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

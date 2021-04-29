@@ -1,11 +1,38 @@
 <head th:fragment="head">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
 </head>
 <body>
-	<nav th:fragment="navegacao" class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark mb-3">
-		<a style= "color: #ffffff; font-size: 25" class="nav-brand mr-5"> BearBlog</a>
-		<a style="color: #ffffff" class="nav-link" href="/home">Início</a>
-		<a style="color: #ffffff" class="nav-link" href="/noticia/formulario">Publicar</a>
+	<nav th:fragment="navegacao" class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark mb-3 mr-auto">
+		
+		<div class="container-fluid">
+		<a class="navbar-brand" href="/home">BearBlog</a>
+	
+		<ul class="navbar-nav me-auto mb-2 ">		
+						
+			<li class="nav-item ">
+				<a style="color: #ffffff" class="nav-link" href="/home">Início</a>
+			</li>
+			
+			<li class="nav-item">
+				<a sec:authorize="isAuthenticated()" style="color: #ffffff" class="nav-link" href="/noticia/formulario">Publicar</a>
+			</li>
+		</ul>
+		
+		<ul class="navbar-nav ml-auto">
+		
+			<li class="nav-item">
+				<a sec:authorize="!isAuthenticated()" style="color: #ffffff" class="nav-link" href="/login">Entrar</a>
+			</li>
+			
+			<li class="nav-item">		
+				<a style="color: #ffffff" sec:authorize="isAuthenticated()" class="nav-link" href="/logout"> Logout</a>		
+			</li>
+		
+		</ul>
+		
+		</div>
 	</nav>
+	
+	
 </body>

@@ -14,13 +14,13 @@ import br.com.bearblog.noticias.model.Noticia;
 import br.com.bearblog.noticias.repository.NoticiaRepository;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping
 public class HomeController {
 	
 	@Autowired
 	private NoticiaRepository noticiaRepository;
 
-	@GetMapping
+	@GetMapping("/home")
 	@Cacheable(value="listaDeNoticias")
 	public String home(Model model) {
 		Sort sort = Sort.by("data").descending();
@@ -29,4 +29,10 @@ public class HomeController {
 		model.addAttribute("noticias", noticias);
 		return "home";
 	}
+	
+	@GetMapping("/")
+	public String home() {
+		return "redirect:/home";
+	}
+
 }
