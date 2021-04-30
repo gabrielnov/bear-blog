@@ -20,9 +20,9 @@
 				<h5 th:text="${noticia.titulo}">Titulo</h5>
 			</div>
 			
-			<div>
-				<h6 class="card-subtitle mb-2 text-muted" th:text="${noticia.nomeAutor}"> Autor</h6>
-			</div>
+			<div> 
+ 				<h6 class="card-subtitle mb-2 text-muted" th:text="${noticia.autor.nomeAutor}"> Autor</h6>
+ 			</div>
 			
 			<div>				
 				<p style="white-space: pre-wrap" class="card-text" th:text="${noticia.texto}">Texto da notícia</p>							

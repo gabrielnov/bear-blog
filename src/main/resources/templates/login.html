@@ -15,11 +15,7 @@
 <div class="container">	
 	
 	<div class="card text-center mx-auto mt-5" style="width: 50rem;">	
-	<!-- 	<div th:if=${param.logout}> -->
-	<!-- 		Você se desconectou.  -->
-	<!-- 		Esperamos te ver de novo em breve!		 -->
-	<!-- 	</div> -->
-	
+
 		<form th:action="@{/login}" method="post">
 			<div class="mt-5"><label>Email: <input type="email" class="form-control" name="username"/></label></div>	
 			<div><label>Senha: <input type="password" class="form-control"  name="password"></label></div>
@@ -28,7 +24,7 @@
 		</form>
 	
 		<div class="text-center mx-auto mt-5 mb-3">
-			<label>Ainda não tem uma conta? Você pode se </label> <a href="#">cadastrar</a><label>.</label>
+			<label>Ainda não tem uma conta? Você pode se </label> <a href="/cadastro">cadastrar</a><label>.</label>
 		</div>
 	</div>
 	

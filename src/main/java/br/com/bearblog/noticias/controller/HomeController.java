@@ -1,5 +1,6 @@
 package br.com.bearblog.noticias.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class HomeController {
 
 	@GetMapping("/home")
 	@Cacheable(value="listaDeNoticias")
-	public String home(Model model) {
+	public String home(Model model, Principal principal) {
 		Sort sort = Sort.by("data").descending();
 	//	PageRequest paginacao = PageRequest.of(0, 10, sort);
 		List<Noticia> noticias = noticiaRepository.findAll(sort);

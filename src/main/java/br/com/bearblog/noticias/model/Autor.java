@@ -23,6 +23,7 @@ public class Autor implements UserDetails {
 	private String email;
 	private String senha;
 	
+	
 	public Long getId() {
 		return id;
 	}

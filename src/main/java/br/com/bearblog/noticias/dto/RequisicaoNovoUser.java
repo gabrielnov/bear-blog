@@ -1,23 +1,30 @@
 package br.com.bearblog.noticias.dto;
 
-import java.time.LocalDateTime;
+import java.util.Optional;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import br.com.bearblog.noticias.model.Autor;
-import br.com.bearblog.noticias.model.Noticia;
+import br.com.bearblog.noticias.repository.AutorRepository;
 
 public class RequisicaoNovoUser {
 	
-	@NotBlank
+	
+	@Size(min=5, message = "O nome deve ter no mínimo 5 caracteres!")	
+	@Size(max = 50, message = "Um baita nome, em? Tente inserir um nome com menos de 50 caracteres.")
 	private String nomeAutor;
 	
-	@NotBlank
+	@NotBlank(message = "O email é obrigatório!")
+	@Email(message = "Insira um endereço de e-mail válido!")
 	private String email;
 	
-	@NotBlank
+	@Size(min=6, message= "A senha deve ter no mínimo 6 caracteres!")
 	private String senha;
 
 	public String getNomeAutor() {
@@ -41,25 +48,23 @@ public class RequisicaoNovoUser {
 	}
 
 	public void setSenha(String senha) {
-		this.senha = new BCryptPasswordEncoder().encode(senha);
+		this.senha = senha;
 	}
 
-	public Autor toUser() {
+	public Autor toUser(AutorRepository autorRepository) {
+		Optional<Autor> existente = autorRepository.findByEmail(email);
+		if(existente.isPresent()) {
+			
+		}
+		
 		Autor autor = new Autor();
 		autor.setNomeAutor(nomeAutor);
 		autor.setEmail(email);
-		autor.setSenha(senha);
+		autor.setSenha(new BCryptPasswordEncoder().encode(senha));
 		
 		return autor;
 	}
 	
-//	Noticia noticia = new Noticia();
-//	noticia.setNomeAutor(nomeAutor);
-//	noticia.setTexto(texto);
-//	noticia.setTitulo(titulo);
-//	noticia.setData(LocalDateTime.now());
-//	return noticia;
-//}
-//	
+
 
 }

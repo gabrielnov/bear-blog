@@ -8,38 +8,40 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Noticia  {
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String nomeAutor;
-	private String titulo;
+	private Long id;	
+	private String titulo;	
 	private String texto;
 	private LocalDateTime data;
 	
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	private Autor autor;
+	@NotNull 
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Autor autor;
 	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
+	}		
 		
-	public String getNomeAutor() {
-		return nomeAutor;
+	public Autor getAutor() {
+		return autor;
 	}
-	
-	public void setNomeAutor(String nomeAutor) {
-		this.nomeAutor = nomeAutor;
+	public void setAutor(Autor autor) {
+		this.autor = autor;
 	}
-		
 	public String getTitulo() {
 		return titulo;
 	}
