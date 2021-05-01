@@ -24,6 +24,7 @@ public class Noticia  {
 	private String titulo;	
 	private String texto;
 	private LocalDateTime data;
+	private String imagem;
 	
 	@NotNull 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -64,6 +65,15 @@ public class Noticia  {
 	public void setData(LocalDateTime localDateTime) {
 		this.data = localDateTime;
 	}
+	
+	public String getImagem() {
+		return imagem;
+	}
+	
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+	
 	
 	
 }

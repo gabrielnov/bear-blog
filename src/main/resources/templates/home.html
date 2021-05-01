@@ -7,38 +7,39 @@
 <body>
 
 
-<div th:replace="~{base :: navegacao}"></div> 
+<div th:replace="~{base :: navegacao}"></div>
 
-<div class="container">	
-
-	<div class="card text-center mx-auto" style="width: 50rem;">
-	
-		<div class="card mb-3" th:each="noticia : ${noticias}">
-		<div class="card-body">
-		
-			<div  class="card-title">
-				<a class="fs-3 text-dark text-decoration-none" th:href="@{noticia/{id}(id = ${noticia.id})}" th:text="${noticia.titulo}">Titulo</a>
-			
+	<div class="card mb-3 mx-auto" style="max-width: 950px" th:each="noticia : ${noticias}">
+		<div class="row g-0">
+			<div class="col-md-4 mt-4 mb-3">
+				<a th:href="@{noticia/{id}(id = ${noticia.id})}">
+					<img th:src="${noticia.imagem}" src="" class="rounded float-end" style="max-width: 300px" />
+				</a>
 			</div>
-			
-			<div> 
- 				<h6 class="card-subtitle mb-2 text-muted" th:text="${noticia.autor.nomeAutor}"> Autor</h6>
- 			</div>
-			
-			<div>				
-				<p style="white-space: pre-wrap" class="card-text" th:text="${noticia.texto}">Texto da notícia</p>							
-			</div>
-			
-			<div class="card-footer">
-    			<small class="text-muted" th:text="${noticia.data}"> Data </small>
-  			</div>
-  			
-		</div>
-		</div>
+			<div class="col-md-8">
+				<div class="card-body">
+					<div class="card-title">
+						<a class="fs-3 text-dark text-decoration-none"
+							th:href="@{noticia/{id}(id = ${noticia.id})}"
+							th:text="${noticia.titulo}">Titulo</a>
+					</div>
 		
+					<div>
+						<h6 class="card-subtitle mb-2 text-muted"
+							th:text="${noticia.autor.nomeAutor}">Autor</h6>
+					</div>
+		
+					<div>
+						<p style="white-space: pre-wrap" class="card-text"
+							th:text="${noticia.texto}">Texto da notícia</p>
+					</div>
+		</div>
 	</div>
+		<div class="card-footer">
+			<small class="text-muted" th:text="${noticia.data}"> Data </small>
+		</div>
 </div>
-
+</div>
 
 </body>
 
