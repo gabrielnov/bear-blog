@@ -1,5 +1,7 @@
 package br.com.bearblog.noticias.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.bearblog.noticias.dto.RequisicaoNovoUser;
 import br.com.bearblog.noticias.model.Autor;
@@ -22,19 +25,25 @@ public class CadastroController {
 	AutorRepository autorRepository;
 	
 	@GetMapping
-	public String cadastro(RequisicaoNovoUser requisicao) {
-		return "user/form";
+	public ModelAndView cadastro(RequisicaoNovoUser requisicao) {
+		return new ModelAndView("user/form");
 	}
 
 	@PostMapping
-	public String novo(@Valid RequisicaoNovoUser requisicao, BindingResult result) {
+	public ModelAndView novo(@Valid RequisicaoNovoUser requisicao, BindingResult result) {
 		if(result.hasErrors()) {
-			return "user/form";
+			return new ModelAndView("user/form");
 		}
 		
 		Autor autor = requisicao.toUser(autorRepository);
+		
+		Optional<Autor> existe = autorRepository.findByEmail(autor.getEmail());
+		if(existe.isPresent()) {
+			return new ModelAndView("user/form").addObject("objeto", existe.get().getEmail());
+		}
+		
 		autorRepository.save(autor);
 		
-		return "redirect:/login";
+		return new ModelAndView("login");
 	}
 }

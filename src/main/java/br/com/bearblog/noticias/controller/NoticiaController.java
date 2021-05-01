@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.bearblog.noticias.dto.RequisicaoNovaNoticia;
 import br.com.bearblog.noticias.model.Noticia;
@@ -30,19 +31,20 @@ public class NoticiaController {
 	private AutorRepository autorRepository;
 
 	@GetMapping
-	public String formulario(RequisicaoNovaNoticia requisicao) {
-		return "noticia/formulario";
+	public ModelAndView formulario(RequisicaoNovaNoticia requisicao) {
+		return new ModelAndView("noticia/formulario");
 	}
 	
 	@PostMapping
-	public String nova(@Valid RequisicaoNovaNoticia requisicao, BindingResult result) {		
+	public ModelAndView nova(@Valid RequisicaoNovaNoticia requisicao, BindingResult result) {		
+		
 		if(result.hasErrors()) {
-			return "noticia/formulario";
+			return new ModelAndView("noticia/formulario");
 		}
 		
 		Noticia noticia = requisicao.toNoticia(autorRepository);
 		noticiaRepository.save(noticia);	
-		return "redirect:/home";
+		return new ModelAndView("/home");
 	}
 	
 	

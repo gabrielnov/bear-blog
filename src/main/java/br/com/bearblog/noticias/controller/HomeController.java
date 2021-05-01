@@ -10,30 +10,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.bearblog.noticias.model.Noticia;
 import br.com.bearblog.noticias.repository.NoticiaRepository;
 
 @Controller
-@RequestMapping
+@RequestMapping("/home") // preciso adicionar o "/"
 public class HomeController {
 	
 	@Autowired
 	private NoticiaRepository noticiaRepository;
 
-	@GetMapping("/home")
+	@GetMapping()
 	@Cacheable(value="listaDeNoticias")
-	public String home(Model model, Principal principal) {
+	public ModelAndView home(Model model, Principal principal) {
 		Sort sort = Sort.by("data").descending();
 	//	PageRequest paginacao = PageRequest.of(0, 10, sort);
 		List<Noticia> noticias = noticiaRepository.findAll(sort);
 		model.addAttribute("noticias", noticias);
-		return "home";
+		return new ModelAndView("home");
 	}
 	
-	@GetMapping("/")
-	public String home() {
-		return "redirect:/home";
-	}
-
 }

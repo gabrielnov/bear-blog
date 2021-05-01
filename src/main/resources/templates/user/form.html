@@ -22,7 +22,7 @@
 		</div>		
 			
 		<div class="mx-auto row mb-4 mt-3">		
-			<label for="email" class="col-sm-3 col-form-label "> Email </label>
+			<label for="email" class="col-sm-3 col-form-label "> E-mail </label>
 			<input th:field="*{email}" class=" form-control col-sm-3 " placeholder="exemplo@email.com"/>		
 			<div class="alert alert-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>	
 		</div>	
@@ -32,13 +32,14 @@
 			<input type="password" class="form-control col-sm-2" th:field="*{senha}" placeholder="senha">
 			<div class="alert alert-warning" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"></div>		
 		</div>	
-				
+		
+		<div class="mx-auto row mb-4 mt-3">
+			<span th:if="${objeto} != null" > O e-mail já está cadastrado! </span>
+		</div>		
 			<button type="submit" class="btn btn-secondary ml-5 mb-3">Cadastrar</button>
 		
-		</form>
-	
+		</form>	
 	</div>
-
 
 </div>
 
