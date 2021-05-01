@@ -25,6 +25,13 @@
 				 <textarea t class="form-control col-sm-7 rows" rows="11" th:field="*{texto}" placeholder="texto da noticia"/>
 				<div class="alert alert-warning" th:if="${#fields.hasErrors('texto')}" th:errors="*{texto}"></div>
 			</div>
+			
+			<div class="mx-auto row mb-3 mt-3">	
+				<label for="imagem" class="col-sm-3 col-form-label "> Url da imagem: </label>
+				<input th:field="*{imagem}" class=" form-control col-sm-5 " placeholder="URL da imagem"/>
+				<div class="alert alert-warning" th:if="${#fields.hasErrors('imagem')}" th:errors="*{imagem}"></div>
+			</div>
+			
 	
 			<button type="submit" class="btn btn-secondary ml-5">Publicar</button>
 		

@@ -24,10 +24,6 @@
 							th:text="${noticia.titulo}">Titulo</a>
 					</div>
 		
-					<div>
-						<h6 class="card-subtitle mb-2 text-muted"
-							th:text="${noticia.autor.nomeAutor}">Autor</h6>
-					</div>
 		
 					<div>
 						<p style="white-space: pre-wrap" class="card-text"
@@ -36,6 +32,7 @@
 		</div>
 	</div>
 		<div class="card-footer">
+			<small class="text-muted" th:text="${noticia.autor.nomeAutor}"> Autor </small>
 			<small class="text-muted" th:text="${noticia.data}"> Data </small>
 		</div>
 </div>

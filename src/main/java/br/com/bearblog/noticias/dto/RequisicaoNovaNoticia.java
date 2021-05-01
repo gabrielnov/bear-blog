@@ -28,6 +28,9 @@ public class RequisicaoNovaNoticia {
 	@Size(min=100, max = 500, message = "Sua notícia deve ter entre 100 e 500 caracteres!")
 	private String texto;
 	
+	@NotNull
+	private String imagem;
+	
 	private Autor autor;
 	
 	public Autor getAutor() {
@@ -54,6 +57,15 @@ public class RequisicaoNovaNoticia {
 		this.titulo = titulo;
 	}
 
+	
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
 
 	public Noticia toNoticia(AutorRepository repository) {
 		
@@ -68,6 +80,7 @@ public class RequisicaoNovaNoticia {
 		noticia.setTexto(texto);
 		noticia.setTitulo(titulo);
 		noticia.setData(LocalDateTime.now());
+		noticia.setImagem(imagem);
 		return noticia;
 	}
 	
