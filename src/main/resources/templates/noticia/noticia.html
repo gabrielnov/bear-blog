@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<body>
+<div th:replace="~{base :: navegacao}"></div>
+
+<div class="container">
+
+	<div class="card mb-3" th:each="noticia : ${noticia}">
+	<div class="card text-center mx-auto" style="width: 50rem;">
+	
+			<div class="card-body">
+			
+			<div  class="card-title">
+				<h5 th:text="${noticia.titulo}">Titulo</h5>
+			</div>
+			
+			<div> 
+ 				<h6 class="card-subtitle mb-2 text-muted" th:text="${noticia.autor.nomeAutor}"> Autor</h6>
+ 			</div>
+			
+			<div>				
+				<p style="white-space: pre-wrap" class="card-text" th:text="${noticia.texto}">Texto da notícia</p>							
+			</div>
+			
+			<div class="card-footer">
+    			<small class="text-muted" th:text="${noticia.data}"> Data </small>
+  			</div>
+
+		
+		</div>
+	</div>
+	</div>
+	
+</div>
+
+</body>
+</html>

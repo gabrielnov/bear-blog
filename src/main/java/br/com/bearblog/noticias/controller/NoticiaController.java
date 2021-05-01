@@ -1,16 +1,19 @@
 package br.com.bearblog.noticias.controller;
 
+import java.security.Principal;
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.bearblog.noticias.dto.RequisicaoNovaNoticia;
@@ -45,6 +48,20 @@ public class NoticiaController {
 		Noticia noticia = requisicao.toNoticia(autorRepository);
 		noticiaRepository.save(noticia);	
 		return new ModelAndView("/home");
+	}
+	
+	@GetMapping("{id}")
+	public String noticia(@PathVariable Long id, Model model, Principal principal) {
+		
+		Optional<Noticia> noticia = noticiaRepository.findById(id);
+		
+		if(noticia.isPresent()) {
+			model.addAttribute("noticia", noticia.get());		
+			return "noticia/noticia";
+		}	
+	
+	return "redirect:/home";
+		
 	}
 	
 	
