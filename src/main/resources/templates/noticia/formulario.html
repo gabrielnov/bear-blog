@@ -11,7 +11,7 @@
 <div class="container">
 	<div class="card text-center mx-auto mt-5 ml-2" style="width: 70rem;">	
 	
-		<form  th:action="@{/noticia}" th:object="${requisicaoNovaNoticia}" method="post">
+		<form  th:action="@{/noticia}" th:object="${noticiaDto}" method="post">
 		
 			<div class="mx-auto row mb-4 mt-3">		
 				<label for="titulo" class="col-sm-3 col-form-label "> Título da notícia: </label>
@@ -22,7 +22,7 @@
 			
 			<div class="mx-auto row mb-3 mt-3">	
 				<label for="texto" class="col-sm-3"> Digite o texto: </label>
-				 <textarea t class="form-control col-sm-7 rows" rows="11" th:field="*{texto}" placeholder="texto da noticia"/>
+				 <textarea class="form-control col-sm-7 rows" rows="11" th:field="*{texto}" placeholder="texto da noticia"/>
 				<div class="alert alert-warning" th:if="${#fields.hasErrors('texto')}" th:errors="*{texto}"></div>
 			</div>
 			

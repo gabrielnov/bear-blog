@@ -9,22 +9,22 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.com.bearblog.noticias.model.Autor;
-import br.com.bearblog.noticias.repository.AutorRepository;
+import br.com.bearblog.noticias.model.User;
+import br.com.bearblog.noticias.repository.UserRepository;
 
 
 @Service
 public class AutenticacaoService  implements UserDetailsService {
 	
 	@Autowired
-	AutorRepository repository;
+	UserRepository repository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<Autor> autor = repository.findByEmail(username);
+		Optional<User> user = repository.findByEmail(username);
 		
-		if(autor.isPresent()) {
-			return autor.get();
+		if(user.isPresent()) {
+			return user.get();
 		}
 		throw new UsernameNotFoundException("Dados inválidos!");
 	}

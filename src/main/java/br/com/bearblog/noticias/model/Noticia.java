@@ -28,7 +28,7 @@ public class Noticia  {
 	
 	@NotNull 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Autor autor;
+	private User user;
 	
 	public Long getId() {
 		return id;
@@ -37,11 +37,11 @@ public class Noticia  {
 		this.id = id;
 	}		
 		
-	public Autor getAutor() {
-		return autor;
+	public User getUser() {
+		return user;
 	}
-	public void setAutor(Autor autor) {
-		this.autor = autor;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public String getTitulo() {
 		return titulo;

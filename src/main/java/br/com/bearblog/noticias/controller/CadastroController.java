@@ -13,36 +13,36 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.bearblog.noticias.dto.RequisicaoNovoUser;
-import br.com.bearblog.noticias.model.Autor;
-import br.com.bearblog.noticias.repository.AutorRepository;
+import br.com.bearblog.noticias.dto.UserDto;
+import br.com.bearblog.noticias.model.User;
+import br.com.bearblog.noticias.repository.UserRepository;
 
 @Controller
 @RequestMapping("cadastro")
 public class CadastroController {
 	
 	@Autowired
-	AutorRepository autorRepository;
+	UserRepository userRepository;
 	
 	@GetMapping
-	public ModelAndView cadastro(RequisicaoNovoUser requisicao) {
+	public ModelAndView cadastro(UserDto requisicao) {
 		return new ModelAndView("user/form");
 	}
 
 	@PostMapping
-	public ModelAndView novo(@Valid RequisicaoNovoUser requisicao, BindingResult result) {
+	public ModelAndView novo(@Valid UserDto requisicao, BindingResult result) {
 		if(result.hasErrors()) {
 			return new ModelAndView("user/form");
 		}
 		
-		Autor autor = requisicao.toUser(autorRepository);
+		User user = requisicao.toUser(userRepository);
 		
-		Optional<Autor> existe = autorRepository.findByEmail(autor.getEmail());
+		Optional<User> existe = userRepository.findByEmail(user.getEmail());
 		if(existe.isPresent()) {
 			return new ModelAndView("user/form").addObject("objeto", existe.get().getEmail());
 		}
 		
-		autorRepository.save(autor);
+		userRepository.save(user);
 		
 		return new ModelAndView("login");
 	}

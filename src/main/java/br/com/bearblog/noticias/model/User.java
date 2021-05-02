@@ -14,12 +14,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-public class Autor implements UserDetails {
+public class User implements UserDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nomeAutor;
+	private String nome;	
 	private String email;
 	private String senha;
 	
@@ -31,15 +31,15 @@ public class Autor implements UserDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public String getNomeAutor() {
-		return nomeAutor;
+		
+	public String getNome() {
+		return nome;
 	}
-	
-	public void setNomeAutor(String nomeAutor) {
-		this.nomeAutor = nomeAutor;
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}

@@ -32,8 +32,8 @@
 		</div>
 	</div>
 		<div class="card-footer">
-			<small class="text-muted" th:text="${noticia.autor.nomeAutor}"> Autor </small>
-			<small class="text-muted" th:text="${noticia.data}"> Data </small>
+			<small class="text-muted"> Publicado em <span th:text="${#temporals.format(noticia.data, 'dd/MM/yyyy HH:mm')}"></span></small>
+			<small class="text-muted"> por <span th:text="${noticia.user.nome}"></span> </small>
 		</div>
 </div>
 </div>

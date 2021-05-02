@@ -13,12 +13,12 @@
 
 	<div class="card">
 	
-		<form th:action="@{/cadastro}" th:object="${requisicaoNovoUser}" method="post">
+		<form th:action="@{/cadastro}" th:object="${userDto}" method="post">
 		
 		<div class="mx-auto row mb-4 mt-3">		
-			<label for="nomeAutor" class="col-sm-3 col-form-label "> Nome completo: </label>
-			<input th:field="*{nomeAutor}" class=" form-control col-sm-4 " placeholder="nome"/>	
-			<div class="alert alert-warning" th:if="${#fields.hasErrors('nomeAutor')}" th:errors="*{nomeAutor}"></div>	
+			<label for="nome" class="col-sm-3 col-form-label "> Nome completo: </label>
+			<input th:field="*{nome}" class=" form-control col-sm-4 " placeholder="nome"/>	
+			<div class="alert alert-warning" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>	
 		</div>		
 			
 		<div class="mx-auto row mb-4 mt-3">		

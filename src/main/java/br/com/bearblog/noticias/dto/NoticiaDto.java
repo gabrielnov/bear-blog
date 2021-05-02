@@ -14,33 +14,24 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.BindingResult;
 
-import br.com.bearblog.noticias.model.Autor;
+import br.com.bearblog.noticias.model.User;
 import br.com.bearblog.noticias.model.Noticia;
-import br.com.bearblog.noticias.repository.AutorRepository;
+import br.com.bearblog.noticias.repository.UserRepository;
 
-public class RequisicaoNovaNoticia {
+public class NoticiaDto {
 
 	@NotNull	
-	@Size(min=10, max=50, message = "Seu título deve ter entre 10 e 50 caracteres!")
+	@Size(min=10, max=100, message = "Seu título deve ter entre 10 e 100 caracteres!")
 	private String titulo;	
-
+		
 	@NotNull
-	@Size(min=100, max = 500, message = "Sua notícia deve ter entre 100 e 500 caracteres!")
 	private String texto;
-	
+		
 	@NotNull
 	private String imagem;
 	
-	private Autor autor;
+	private User user;	
 	
-	public Autor getAutor() {
-		return autor;
-	}
-
-	public void setAutor(Autor autor) {
-		this.autor = autor;
-	}
-
 	public String getTexto() {
 		return texto;
 	}
@@ -57,8 +48,14 @@ public class RequisicaoNovaNoticia {
 		this.titulo = titulo;
 	}
 
-	
+	public User getUser() {
+		return user;
+	}
 
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	public String getImagem() {
 		return imagem;
 	}
@@ -66,17 +63,17 @@ public class RequisicaoNovaNoticia {
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
 	}
-
-	public Noticia toNoticia(AutorRepository repository) {
+	
+	public Noticia toNoticia(UserRepository repository) {
 		
 	
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-		Optional<Autor> logado = repository.findByEmail(userDetails.getUsername());
+		Optional<User> logado = repository.findByEmail(userDetails.getUsername());
 		
 		Noticia noticia = new Noticia();	
 		
-		noticia.setAutor(logado.get());
+		noticia.setUser(logado.get());
 		noticia.setTexto(texto);
 		noticia.setTitulo(titulo);
 		noticia.setData(LocalDateTime.now());

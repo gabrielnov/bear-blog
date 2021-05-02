@@ -15,25 +15,24 @@
 	
 			<div class="card-body">
 			
-				<div  class="card-title">
-					<h5 th:text="${noticia.titulo}">Titulo</h5>
+				<div class="card-title">
+					<h1 th:text="${noticia.titulo}">Titulo</h1>
 				</div>
 				
-				<div> 
-	 				<h6 class="card-subtitle mb-2 text-muted" th:text="${noticia.autor.nomeAutor}"> Autor</h6>
-	 			</div>
+				<div class="mb-3"> 
+	 				<small class="text-muted"> Publicado em <span th:text="${#temporals.format(noticia.data, 'dd/MM/yyyy HH:mm')}"></span></small>
+					<small class="text-muted"> por <span th:text="${noticia.user.nome}"></span></small> 
+				</div>
 				
 				<div>				
 					<p style="white-space: pre-wrap" class="card-text" th:text="${noticia.texto}">Texto da not�cia</p>							
 				</div>
 				
 				<div class="mt-5 mb-3">
-					<img th:src="${noticia.imagem}" src="" class="rounded float-end" />
+					<img th:src="${noticia.imagem}" src="" class=" card-img-bottom rounded " />
 				</div>
 				
-				<div class="card-footer">
-	    			<small class="text-muted" th:text="${noticia.data}"> Data </small>
-	  			</div>
+				
 		
 		</div>
 	</div>

@@ -16,14 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.bearblog.noticias.dto.RequisicaoNovaNoticia;
+import br.com.bearblog.noticias.dto.NoticiaDto;
 import br.com.bearblog.noticias.model.Noticia;
-import br.com.bearblog.noticias.repository.AutorRepository;
+import br.com.bearblog.noticias.repository.UserRepository;
 import br.com.bearblog.noticias.repository.NoticiaRepository;
 
 
 @Controller
-@RequestMapping("noticia")
 public class NoticiaController {
 	
 		
@@ -31,26 +30,29 @@ public class NoticiaController {
 	private NoticiaRepository noticiaRepository;
 	
 	@Autowired
-	private AutorRepository autorRepository;
+	private UserRepository userRepository;
 
-	@GetMapping
-	public ModelAndView formulario(RequisicaoNovaNoticia requisicao) {
+	
+	@GetMapping("noticia")
+	public ModelAndView formulario(NoticiaDto requisicao) {
 		return new ModelAndView("noticia/formulario");
 	}
 	
-	@PostMapping
-	public ModelAndView nova(@Valid RequisicaoNovaNoticia requisicao, BindingResult result) {		
+	@PostMapping("noticia")
+	public ModelAndView nova(@Valid NoticiaDto requisicao, Model model, BindingResult result) {		
 		
 		if(result.hasErrors()) {
 			return new ModelAndView("noticia/formulario");
 		}
 		
-		Noticia noticia = requisicao.toNoticia(autorRepository);
+		Noticia noticia = requisicao.toNoticia(userRepository);
 		noticiaRepository.save(noticia);	
-		return new ModelAndView("/home");
+		
+		model.addAttribute("id", noticia.getId());		
+		return new ModelAndView("redirect:/home");
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("noticia/{id}")
 	public String noticia(@PathVariable Long id, Model model, Principal principal) {
 		
 		Optional<Noticia> noticia = noticiaRepository.findById(id);
