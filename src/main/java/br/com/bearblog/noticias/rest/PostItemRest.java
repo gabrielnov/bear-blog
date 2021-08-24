@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.bearblog.noticias.model.Noticia;
-import br.com.bearblog.noticias.repository.NoticiaRepository;
+import br.com.bearblog.noticias.model.PostItem;
+import br.com.bearblog.noticias.repository.PostItemRepository;
 
 @RestController
 @RequestMapping("/api/noticias")
-public class NoticiasRest {
+public class PostItemRest {
 
 	@Autowired
-	private NoticiaRepository noticiaRepository;
+	private PostItemRepository noticiaRepository;
 	
-	// método da interface repository
+	// mï¿½todo da interface repository
 	@GetMapping("publicadas")
-	public List<Noticia> getNoticias(){
+	public List<PostItem> getPostItem(){
 		return noticiaRepository.findAll();
 	}
 }

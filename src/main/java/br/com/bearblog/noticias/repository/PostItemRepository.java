@@ -4,13 +4,13 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.bearblog.noticias.model.Noticia;
+import br.com.bearblog.noticias.model.PostItem;
 
 
 //implementacao da interface repository
-public interface NoticiaRepository extends JpaRepository<Noticia, Long>{
+public interface PostItemRepository extends JpaRepository<PostItem, Long>{
 
-	Optional<Noticia> findById(Long id);
+	Optional<PostItem> findById(Long id);
 
 	
 }

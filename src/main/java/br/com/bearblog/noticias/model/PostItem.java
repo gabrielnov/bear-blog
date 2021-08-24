@@ -1,6 +1,5 @@
 package br.com.bearblog.noticias.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -8,23 +7,20 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
-public class Noticia  {
+public class PostItem {
 	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
-	private String titulo;	
-	private String texto;
-	private LocalDateTime data;
-	private String imagem;
+	private String title;
+	private String text;
+	private LocalDateTime date;
+	private String image;
 	
 	@NotNull 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -40,38 +36,41 @@ public class Noticia  {
 	public User getUser() {
 		return user;
 	}
+
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public String getTitulo() {
-		return titulo;
+
+	public String getTitle() {
+		return title;
 	}
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-	
-	public String getTexto() {
-		return texto;
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
-	public void setTexto(String texto) {
-		this.texto = texto;
+	public String getText() {
+		return text;
 	}
 	
-	public LocalDateTime getData() {
-		return data;
+	public void setText(String text) {
+		this.text = text;
 	}
 	
-	public void setData(LocalDateTime localDateTime) {
-		this.data = localDateTime;
+	public LocalDateTime getDate() {
+		return date;
 	}
 	
-	public String getImagem() {
-		return imagem;
+	public void setDate(LocalDateTime localDateTime) {
+		this.date = localDateTime;
 	}
 	
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
+	public String getImage() {
+		return image;
+	}
+	
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	
