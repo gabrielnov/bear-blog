@@ -4,11 +4,11 @@
 
 ![Home](screenshots/homepage.png)
 
-![Login](screenshots/login.png)
-
 ![PostItem](screenshots/postItem.png)
 
 ![Publish](screenshots/publish.png)
+
+![Login](screenshots/login.png)
 
 ![Register](screenshots/register.png)
 
