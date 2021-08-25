@@ -5,7 +5,7 @@
 
 </head>
 
-<div th:replace="~{base :: navegacao}"></div>
+<div th:replace="~{base :: navigation}"></div>
 
 <body>
 
@@ -16,27 +16,27 @@
 		<form th:action="@{/cadastro}" th:object="${userDto}" method="post">
 		
 		<div class="mx-auto row mb-4 mt-3">		
-			<label for="nome" class="col-sm-3 col-form-label "> Nome completo: </label>
-			<input th:field="*{nome}" class=" form-control col-sm-4 " placeholder="nome"/>	
-			<div class="alert alert-warning" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>	
+			<label for="name" class="col-sm-3 col-form-label "> Your name: </label>
+			<input th:field="*{name}" class=" form-control col-sm-4 " placeholder="Name"/>
+			<div class="alert alert-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
 		</div>		
 			
 		<div class="mx-auto row mb-4 mt-3">		
 			<label for="email" class="col-sm-3 col-form-label "> E-mail </label>
-			<input th:field="*{email}" class=" form-control col-sm-3 " placeholder="exemplo@email.com"/>		
+			<input th:field="*{email}" class=" form-control col-sm-3 " placeholder="example@email.com"/>
 			<div class="alert alert-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>	
 		</div>	
 			
 		<div class="mx-auto row mb-4 mt-3">		
-			<label for="email" class="col-sm-3 col-form-label "> Senha </label>
-			<input type="password" class="form-control col-sm-2" th:field="*{senha}" placeholder="senha">
-			<div class="alert alert-warning" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"></div>		
+			<label for="password" class="col-sm-3 col-form-label "> Password </label>
+			<input type="password" class="form-control col-sm-2" th:field="*{passphrase}" placeholder="Password">
+			<div class="alert alert-warning" th:if="${#fields.hasErrors('passphrase')}" th:errors="*{passphrase}"></div>
 		</div>	
 		
 		<div class="mx-auto row mb-4 mt-3">
-			<span th:if="${objeto} != null" > O e-mail já está cadastrado! </span>
+			<span th:if="${object} != null" > This e-mail is already used! </span>
 		</div>		
-			<button type="submit" class="btn btn-secondary ml-5 mb-3">Cadastrar</button>
+			<button type="submit" class="btn btn-secondary ml-5 mb-3">Create account</button>
 		
 		</form>	
 	</div>

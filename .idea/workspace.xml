@@ -5,15 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fa17915-c2a5-4c02-bfeb-2a06dba38edd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/controller/NoticiaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/controller/NoticiaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/dto/NoticiaDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/dto/PostItemDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/model/Noticia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/model/PostItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/repository/NoticiaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/repository/PostItemRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/rest/NoticiasRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/rest/PostItemRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/service/UserService.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/NoticiasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/BearBlogApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/controller/CadastroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/controller/NoticiaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/controller/PostItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/dto/PostItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/dto/PostItemDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/dto/UserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/model/PostItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/model/PostItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/repository/PostItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/repository/PostItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/rest/PostItemRest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/security/AutenticacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/security/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bearblog/noticias/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/bearblog/postItems/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/noticia/formulario.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/postItem/postItemForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/noticia/noticia.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/postItem/postItem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/br.com.meskla/noticias/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/br.com.meskla/noticias/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/noticia/formulario.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/br/com/meskla/noticias/NoticiasApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/br/com/meskla/noticias/NoticiasApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +64,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
-    <configuration name="NoticiasApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="br.com.bearblog.noticias.NoticiasApplication" />
+    <configuration name="BearBlogApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.com.bearblog.postItems.BearBlogApplication" />
       <module name="noticias" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.bearblog.noticias.*" />
+          <option name="PATTERN" value="br.com.bearblog.postItems.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -67,7 +90,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NoticiasApplication" />
+        <item itemvalue="Application.BearBlogApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -92,5 +115,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

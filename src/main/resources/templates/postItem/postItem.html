@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<meta charset="ISO-8859-1">
+<title>BearBlog</title>
+</head>
+
+<body>
+<div th:replace="~{base :: navigation}"></div>
+
+<div class="container">
+
+	<div class="card mb-3 text-center mx-auto"  style="width: 50rem;" th:each="postItem : ${postItem}">
+	
+			<div class="card-body">
+			
+				<div class="card-title">
+					<h1 th:text="${postItem.title}">Title</h1>
+				</div>
+				
+				<div class="mb-3"> 
+	 				<small class="text-muted"> Published at <span th:text="${#temporals.format(postItem.date, 'dd/MM/yyyy HH:mm')}"></span></small>
+					<small class="text-muted"> by <span th:text="${postItem.user.name}"></span></small>
+				</div>
+				
+				<div>				
+					<p style="white-space: pre-wrap" class="card-text" th:text="${postItem.text}">Post text</p>
+				</div>
+				
+				<div class="mt-5 mb-3">
+					<img th:src="${postItem.image}" src="" class=" card-img-bottom rounded " />
+				</div>
+				
+				
+		
+		</div>
+	</div>
+	
+	
+</div>
+
+</body>
+</html>
