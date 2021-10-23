@@ -1,6 +1,6 @@
 package br.com.bearblog.postItems.dto;
 
-import br.com.bearblog.postItems.model.PostItem;
+import br.com.bearblog.postItems.model.News;
 import br.com.bearblog.postItems.model.User;
 import br.com.bearblog.postItems.repository.UserRepository;
 import org.springframework.security.core.Authentication;
@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-public class PostItemDto {
+public class NewsDto {
 
 	@NotNull	
 	@Size(min=10, max=100, message = "Your title must contain at least 10 characters!")
@@ -58,21 +58,21 @@ public class PostItemDto {
 		this.image = image;
 	}
 	
-	public PostItem postItemConverter(UserRepository repository) {
+	public News newsFactory(UserRepository repository) {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 		Optional<User> currentUser = repository.findByEmail(userDetails.getUsername());
 		
-		PostItem postItem = new PostItem();
+		News news = new News();
 		
-		postItem.setUser(currentUser.get());
-		postItem.setText(text);
-		postItem.setTitle(title);
-		postItem.setDate(LocalDateTime.now());
-		postItem.setImage(image);
+		news.setUser(currentUser.get());
+		news.setText(text);
+		news.setTitle(title);
+		news.setDate(LocalDateTime.now());
+		news.setImage(image);
 
-		return postItem;
+		return news;
 	}
 	
 }

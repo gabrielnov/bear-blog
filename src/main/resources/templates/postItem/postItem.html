@@ -11,25 +11,25 @@
 
 <div class="container">
 
-	<div class="card mb-3 text-center mx-auto"  style="width: 50rem;" th:each="postItem : ${postItem}">
+	<div class="card mb-3 text-center mx-auto"  style="width: 50rem;" th:each="news : ${news}">
 	
 			<div class="card-body">
 			
 				<div class="card-title">
-					<h1 th:text="${postItem.title}">Title</h1>
+					<h1 th:text="${news.title}">Title</h1>
 				</div>
 				
 				<div class="mb-3"> 
-	 				<small class="text-muted"> Published at <span th:text="${#temporals.format(postItem.date, 'dd/MM/yyyy HH:mm')}"></span></small>
-					<small class="text-muted"> by <span th:text="${postItem.user.name}"></span></small>
+	 				<small class="text-muted"> Published at <span th:text="${#temporals.format(news.date, 'dd/MM/yyyy HH:mm')}"></span></small>
+					<small class="text-muted"> by <span th:text="${news.user.name}"></span></small>
 				</div>
 				
 				<div>				
-					<p style="white-space: pre-wrap" class="card-text" th:text="${postItem.text}">Post text</p>
+					<p style="white-space: pre-wrap" class="card-text" th:text="${news.text}">Post text</p>
 				</div>
 				
 				<div class="mt-5 mb-3">
-					<img th:src="${postItem.image}" src="" class=" card-img-bottom rounded " />
+					<img th:src="${news.image}" src="" class=" card-img-bottom rounded " />
 				</div>
 				
 				

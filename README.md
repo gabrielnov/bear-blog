@@ -4,7 +4,7 @@
 
 ![Home](screenshots/homepage.png)
 
-![PostItem](screenshots/postItem.png)
+![PostItem](screenshots/news.png)
 
 ![Publish](screenshots/publish.png)
 

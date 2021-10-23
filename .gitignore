@@ -15,6 +15,7 @@ local.properties
 .loadpath
 .recommenders
 
+
 # External tool builders
 .externalToolBuilders/
 
@@ -121,3 +122,8 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java,windows
 /target/
+
+# Intellij
+.idea/workspace.xml
+.idea/modules.xml
+.idea/compiler.xml

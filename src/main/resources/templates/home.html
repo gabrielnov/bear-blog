@@ -9,31 +9,31 @@
 
 <div th:replace="~{base :: navigation}"></div>
 
-	<div class="card mb-3 mx-auto" style="max-width: 950px" th:each="postItem : ${postItems}">
+	<div class="card mb-3 mx-auto" style="max-width: 950px" th:each="news : ${news}">
 		<div class="row g-0">
 			<div class="col-md-4 mt-4 mb-3">
-				<a th:href="@{postItem/{id}(id = ${postItem.id})}">
-					<img th:src="${postItem.image}" src="" class="rounded float-end" style="max-width: 300px" />
+				<a th:href="@{news/{id}(id = ${news.id})}">
+					<img th:src="${news.image}" src="" class="rounded float-end" style="max-width: 300px" />
 				</a>
 			</div>
 			<div class="col-md-8">
 				<div class="card-body">
 					<div class="card-title">
 						<a class="fs-3 text-dark text-decoration-none"
-							th:href="@{postItem/{id}(id = ${postItem.id})}"
-							th:text="${postItem.title}">Title</a>
+							th:href="@{news/{id}(id = ${news.id})}"
+							th:text="${news.title}">Title</a>
 					</div>
 		
 		
 					<div>
 						<p style="white-space: pre-wrap" class="card-text"
-							th:text="${postItem.text}">Post text</p>
+							th:text="${news.text}">Post text</p>
 					</div>
 		</div>
 	</div>
 		<div class="card-footer">
-			<small class="text-muted"> Published at <span th:text="${#temporals.format(postItem.date, 'dd/MM/yyyy HH:mm')}"></span></small>
-			<small class="text-muted"> by <span th:text="${postItem.user.name}"></span> </small>
+			<small class="text-muted"> Published at <span th:text="${#temporals.format(news.date, 'dd/MM/yyyy HH:mm')}"></span></small>
+			<small class="text-muted"> by <span th:text="${news.user.name}"></span> </small>
 		</div>
 </div>
 </div>

@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-public class PostItem {
+public class News {
 	
 
 	@Id
