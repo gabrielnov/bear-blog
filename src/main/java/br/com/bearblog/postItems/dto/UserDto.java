@@ -1,13 +1,11 @@
 package br.com.bearblog.postItems.dto;
 
 import br.com.bearblog.postItems.model.User;
-import br.com.bearblog.postItems.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Optional;
 
 public class UserDto {
 	
@@ -46,14 +44,8 @@ public class UserDto {
 		this.passphrase = passphrase;
 	}
 
-	public User toUser(UserRepository userRepository) {
+	public User toUser() {
 
-		Optional<User> existing = userRepository.findByEmail(email);
-
-		if(existing.isPresent()) {
-			
-		}
-		
 		User user = new User();
 		user.setName(name);
 		user.setEmail(email);
@@ -61,7 +53,4 @@ public class UserDto {
 		
 		return user;
 	}
-	
-
-
 }
