@@ -2,6 +2,7 @@ package br.com.bearblog.postItems.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,9 +15,9 @@ public class News {
 	private String title;
 
 	@Column(columnDefinition = "LONGTEXT")
+	@Size(min = 1, max = 240)
 	private String text;
 	private LocalDateTime date;
-	private String image;
 	
 	@NotNull 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -57,17 +58,9 @@ public class News {
 	public LocalDateTime getDate() {
 		return date;
 	}
-	
+
 	public void setDate(LocalDateTime localDateTime) {
 		this.date = localDateTime;
-	}
-	
-	public String getImage() {
-		return image;
-	}
-	
-	public void setImage(String image) {
-		this.image = image;
 	}
 
 }

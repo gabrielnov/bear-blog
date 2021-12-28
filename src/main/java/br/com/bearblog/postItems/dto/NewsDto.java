@@ -17,13 +17,11 @@ public class NewsDto {
 	@NotNull	
 	@Size(min=10, max=100, message = "Your title must contain at least 10 characters!")
 	private String title;
-		
+
 	@NotNull
+	@Size(min=1, max=250, message = "Your title must be between 1 and 250 characters!")
 	private String text;
-		
-	@NotNull
-	private String image;
-	
+
 	private User user;	
 	
 	public String getText() {
@@ -49,15 +47,7 @@ public class NewsDto {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	public String getImage() {
-		return image;
-	}
 
-	public void setImage(String image) {
-		this.image = image;
-	}
-	
 	public News newsFactory(UserRepository repository) {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -70,7 +60,6 @@ public class NewsDto {
 		news.setText(text);
 		news.setTitle(title);
 		news.setDate(LocalDateTime.now());
-		news.setImage(image);
 
 		return news;
 	}
