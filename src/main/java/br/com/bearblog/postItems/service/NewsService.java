@@ -13,14 +13,11 @@ import java.util.Optional;
 @Service
 public class NewsService {
 
+    @Autowired
     NewsRepository newsRepository;
-    UserRepository userRepository;
 
     @Autowired
-    public NewsService(NewsRepository newsRepository, UserRepository userRepository) {
-        this.newsRepository = newsRepository;
-        this.userRepository = userRepository;
-    }
+    UserRepository userRepository;
 
     public List<News> findAll() {
         return newsRepository.findAll();
