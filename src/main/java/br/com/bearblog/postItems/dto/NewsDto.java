@@ -1,8 +1,6 @@
 package br.com.bearblog.postItems.dto;
 
 import br.com.bearblog.postItems.model.News;
-import br.com.bearblog.postItems.model.User;
-import br.com.bearblog.postItems.repository.UserRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +12,12 @@ import java.util.Optional;
 
 public class NewsDto {
 
-	@NotNull	
+	public NewsDto(String title, String text) {
+		this.title = title;
+		this.text = text;
+	}
+
+	@NotNull
 	@Size(min=10, max=100, message = "Your title must contain at least 10 characters!")
 	private String title;
 
@@ -22,7 +25,7 @@ public class NewsDto {
 	@Size(min=1, max=250, message = "Your title must be between 1 and 250 characters!")
 	private String text;
 
-	private User user;	
+	private String username;
 	
 	public String getText() {
 		return text;
@@ -40,23 +43,22 @@ public class NewsDto {
 		this.title = title;
 	}
 
-	public User getUser() {
-		return user;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(String username) {
+		this.username = username;
 	}
 
-	public News newsFactory(UserRepository repository) {
+	public News newsFactory() {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-		Optional<User> currentUser = repository.findByEmail(userDetails.getUsername());
-		
+
 		News news = new News();
 		
-		news.setUser(currentUser.get());
+		news.setUsername(username);
 		news.setText(text);
 		news.setTitle(title);
 		news.setDate(LocalDateTime.now());
