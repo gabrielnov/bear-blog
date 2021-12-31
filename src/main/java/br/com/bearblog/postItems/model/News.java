@@ -15,7 +15,7 @@ public class News {
 	private String title;
 
 	@Column(columnDefinition = "LONGTEXT")
-	@Size(min = 1, max = 240)
+	@Size(min = 1, max = 10000)
 	private String text;
 	private LocalDateTime date;
 	

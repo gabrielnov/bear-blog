@@ -22,7 +22,7 @@ public class NewsDto {
 	private String title;
 
 	@NotNull
-	@Size(min=1, max=250, message = "Your title must be between 1 and 250 characters!")
+	@Size(min=1, max=10000, message = "Your title must be between 1 and 250 characters!")
 	private String text;
 
 	private String username;
