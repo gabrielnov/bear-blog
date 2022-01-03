@@ -1,8 +1,8 @@
 package br.com.bearblog.postItems.controller;
 
-import br.com.bearblog.postItems.dto.NewsDto;
-import br.com.bearblog.postItems.model.News;
-import br.com.bearblog.postItems.service.NewsService;
+import br.com.bearblog.postItems.dto.PublicationDto;
+import br.com.bearblog.postItems.model.Publication;
+import br.com.bearblog.postItems.service.PublicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
@@ -17,18 +17,18 @@ import java.util.Optional;
 public class NewsController {
 
 	@Autowired
-	private NewsService newsService;
+	private PublicationService publicationService;
 
 	@GetMapping("/api/news/")
 	@Cacheable(value="newsList")
-	public ResponseEntity<List<News>> getAll() {
-		List<News> news = newsService.findAll();
+	public ResponseEntity<List<Publication>> getAll() {
+		List<Publication> news = publicationService.findAll();
 		return ResponseEntity.ok().body(news);
 	}
 
 	@GetMapping("api/news/{id}")
-	public ResponseEntity<News> getNews(@PathVariable Long id) {
-		Optional<News> newsModel = newsService.findById(id);
+	public ResponseEntity<Publication> getNews(@PathVariable Long id) {
+		Optional<Publication> newsModel = publicationService.findById(id);
 		if(newsModel.isPresent()) {
 			return ResponseEntity.ok().body(newsModel.get());
 		}
@@ -36,8 +36,8 @@ public class NewsController {
 	}
 
 	@PostMapping("/api/news")
-	public ResponseEntity<?> publishNews(@RequestBody NewsDto news) {
-		newsService.saveNews(news);
+	public ResponseEntity<?> publishNews(@RequestBody PublicationDto news) {
+		publicationService.saveNews(news);
 		return ResponseEntity.noContent().build();
 	}
 

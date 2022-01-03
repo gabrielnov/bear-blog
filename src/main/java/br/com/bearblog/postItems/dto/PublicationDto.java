@@ -1,14 +1,14 @@
 package br.com.bearblog.postItems.dto;
 
-import br.com.bearblog.postItems.model.News;
+import br.com.bearblog.postItems.model.Publication;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
-public class NewsDto {
+public class PublicationDto {
 
-	public NewsDto(String title, String text) {
+	public PublicationDto(String title, String text) {
 		this.title = title;
 		this.text = text;
 	}
@@ -37,9 +37,9 @@ public class NewsDto {
 		this.title = title;
 	}
 
-	public News newsFactory() {
+	public Publication newsFactory() {
 
-		News news = new News();
+		Publication news = new Publication();
 		news.setText(text);
 		news.setTitle(title);
 		news.setCreatedAt(LocalDateTime.now());

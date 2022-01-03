@@ -5,7 +5,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
-public class News {
+public class Publication {
 	
 
 	@Id
