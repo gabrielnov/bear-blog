@@ -19,15 +19,14 @@ public class NewsController {
 	@Autowired
 	private PublicationService publicationService;
 
-	@GetMapping("/api/news/")
-	@Cacheable(value="newsList")
+	@GetMapping("/api/publication/")
 	public ResponseEntity<List<Publication>> getAll() {
 		List<Publication> news = publicationService.findAll();
 		return ResponseEntity.ok().body(news);
 	}
 
-	@GetMapping("api/news/{id}")
-	public ResponseEntity<Publication> getNews(@PathVariable Long id) {
+	@GetMapping("api/publication/{id}")
+	public ResponseEntity<Publication> getPublication(@PathVariable Long id) {
 		Optional<Publication> newsModel = publicationService.findById(id);
 		if(newsModel.isPresent()) {
 			return ResponseEntity.ok().body(newsModel.get());
@@ -35,10 +34,11 @@ public class NewsController {
 		return ResponseEntity.notFound().build();
 	}
 
-	@PostMapping("/api/news")
-	public ResponseEntity<?> publishNews(@RequestBody PublicationDto news) {
-		publicationService.saveNews(news);
-		return ResponseEntity.noContent().build();
+	// TODO: return URI
+	@PostMapping("/api/publication")
+	public ResponseEntity<Publication> publish(@RequestBody PublicationDto news) {
+		Publication publication = publicationService.saveNews(news);
+		return ResponseEntity.ok().body(publication);
 	}
 
 	@ExceptionHandler(ClassCastException.class)

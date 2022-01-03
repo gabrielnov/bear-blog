@@ -9,12 +9,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 
 import java.util.Optional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -29,17 +31,31 @@ public class PublicationServiceTest {
     @Autowired
     private PublicationService publicationService;
 
+    String title = "This is just a test for a title";
+    String text = "And this is just a test for a text";
+
     @Test
     void shouldCreateNewPublication() throws Exception {
-        String title = "This is just a test for a title";
-        String text = "And this is just a test for a text";
-
         PublicationDto publicationDto = new PublicationDto(title, text);
 
         mockMvc.perform(post("/api/news")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(publicationDto)))
-                .andExpect(status().isNoContent());
+                .andExpect(status().isOk());
+
+
+        Optional<Publication> publication = publicationService.findByTitleContaining("This is just");
+        Assertions.assertEquals(title, publication.get().getTitle());
+    }
+
+    @Test
+    void shouldReturnIdAfterCreation() throws Exception {
+        PublicationDto publicationDto = new PublicationDto(title, text);
+
+        ResultActions resultActions = mockMvc.perform(post("/api/news")
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(publicationDto)))
+                .andExpect(status().isOk());
 
         Optional<Publication> publication = publicationService.findByTitleContaining("This is just");
         Assertions.assertEquals(title, publication.get().getTitle());

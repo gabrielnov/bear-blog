@@ -19,9 +19,10 @@ public class PublicationService {
         return newsRepository.findAll();
     }
 
-    public void saveNews(PublicationDto news) {
+    public Publication saveNews(PublicationDto news) {
         Publication newsModel = news.newsFactory();
-        newsRepository.save(newsModel);
+        Publication saved = newsRepository.save(newsModel);
+        return saved;
     }
 
     public Optional<Publication> findById(Long id) {
