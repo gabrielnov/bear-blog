@@ -1,7 +1,6 @@
 package br.com.bearblog.postItems.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
@@ -17,25 +16,14 @@ public class News {
 	@Column(columnDefinition = "LONGTEXT")
 	@Size(min = 1, max = 10000)
 	private String text;
-	private LocalDateTime date;
-	
-	@NotNull 
-	private String username;
-	
+	private LocalDateTime createdAt;
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 	public String getTitle() {
@@ -54,12 +42,12 @@ public class News {
 		this.text = text;
 	}
 	
-	public LocalDateTime getDate() {
-		return date;
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setDate(LocalDateTime localDateTime) {
-		this.date = localDateTime;
+	public void setCreatedAt(LocalDateTime localDateTime) {
+		this.createdAt = localDateTime;
 	}
 
 }
