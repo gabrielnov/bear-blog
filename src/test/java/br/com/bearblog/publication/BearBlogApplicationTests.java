@@ -1,4 +1,4 @@
-package br.com.bearblog.postItems;
+package br.com.bearblog.publication;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

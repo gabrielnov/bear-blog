@@ -1,10 +1,9 @@
-package br.com.bearblog.postItems.controller;
+package br.com.bearblog.publication.controller;
 
-import br.com.bearblog.postItems.dto.PublicationDto;
-import br.com.bearblog.postItems.model.Publication;
-import br.com.bearblog.postItems.service.PublicationService;
+import br.com.bearblog.publication.dto.PublicationDto;
+import br.com.bearblog.publication.model.Publication;
+import br.com.bearblog.publication.service.PublicationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +36,7 @@ public class NewsController {
 	// TODO: return URI
 	@PostMapping("/api/publication")
 	public ResponseEntity<Publication> publish(@RequestBody PublicationDto news) {
-		Publication publication = publicationService.saveNews(news);
+		Publication publication = publicationService.savePublication(news);
 		return ResponseEntity.ok().body(publication);
 	}
 

@@ -1,4 +1,4 @@
-package br.com.bearblog.postItems;
+package br.com.bearblog.publication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

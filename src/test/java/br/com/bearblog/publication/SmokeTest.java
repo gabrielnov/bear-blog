@@ -1,6 +1,6 @@
-package br.com.bearblog.postItems;
+package br.com.bearblog.publication;
 
-import br.com.bearblog.postItems.controller.NewsController;
+import br.com.bearblog.publication.controller.NewsController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package br.com.bearblog.postItems.security;
+package br.com.bearblog.publication.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

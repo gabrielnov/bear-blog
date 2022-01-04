@@ -1,4 +1,4 @@
-package br.com.bearblog.postItems.model;
+package br.com.bearblog.publication.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
