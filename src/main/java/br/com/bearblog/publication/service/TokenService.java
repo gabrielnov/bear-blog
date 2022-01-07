@@ -21,12 +21,13 @@ public class TokenService {
     public String generateToken (Authentication authentication){
 
         User loggedUser = (User) authentication.getPrincipal();
+
         Date expirationDate = new Date(new Date().getTime() + Long.parseLong(expiration));
 
         return Jwts.builder()
                 .setIssuer("BearBlog")
                 .setSubject(loggedUser.getId().toString())
-                .setIssuedAt(null)
+                .setIssuedAt(new Date())
                 .setExpiration(expirationDate)
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();

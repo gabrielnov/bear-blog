@@ -1,4 +1,4 @@
-package br.com.bearblog.publication;
+package br.com.bearblog.publication.service;
 
 import br.com.bearblog.publication.repository.PublicationRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
