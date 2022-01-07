@@ -37,12 +37,12 @@ public class PublicationServiceTest {
     @Autowired
     private PublicationRepository publicationRepository;
 
-    String title, text;
+    String title,  text = "this is just a test";
 
     @Test
     void shouldReturnListOfPublications() throws Exception {
         title = "Finding multiple publications test";
-        text = "this is just a test";
+
         PublicationDto pub1 = new PublicationDto(title, text);
         PublicationDto pub2 = new PublicationDto(title, text);
 
@@ -67,7 +67,6 @@ public class PublicationServiceTest {
     @Test
     void shouldCreateNewPublication() throws Exception {
         title = "Creating publication test";
-        text = "this is just a test";
         PublicationDto publicationDto = new PublicationDto(title, text);
 
         mockMvc.perform(post("/api/publication")
@@ -83,7 +82,6 @@ public class PublicationServiceTest {
     @Test
     void shouldReturnIdAfterCreation() throws Exception {
         title = "Finding one publication test";
-        text = "this is just a test";
         PublicationDto publicationDto = new PublicationDto(title, text);
 
         mockMvc.perform(post("/api/publication")
@@ -97,7 +95,6 @@ public class PublicationServiceTest {
     @Test
     void shouldSavePublication(){
         title = "Saving publication test";
-        text = "this is just a test";
         PublicationDto publicationDto = new PublicationDto(title, text);
 
         Publication publication = publicationService.savePublication(publicationDto);
