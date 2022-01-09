@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -41,6 +42,12 @@ public class User implements UserDetails {
         return null;
     }
 
+    public void setPassword(String password){
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        this.password = bCryptPasswordEncoder.encode(password);
+        System.out.printf("Senha %s\n ", this.password);
+    }
+
     @Override
     public String getUsername() {
         return null;
@@ -65,5 +72,7 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return false;
     }
+
+
 
 }

@@ -13,27 +13,27 @@ import java.util.Optional;
 
 
 @RestController
-public class NewsController {
+public class PublicationController {
 
 	@Autowired
 	private PublicationService publicationService;
 
 	@GetMapping("/api/publication/")
 	public ResponseEntity<List<Publication>> getAll() {
-		List<Publication> news = publicationService.findAll();
-		return ResponseEntity.ok().body(news);
+		List<Publication> publications = publicationService.findAll();
+		return ResponseEntity.ok().body(publications);
 	}
 
 	@GetMapping("api/publication/{id}")
 	public ResponseEntity<Publication> getPublication(@PathVariable Long id) {
-		Optional<Publication> newsModel = publicationService.findById(id);
-		if(newsModel.isPresent()) {
-			return ResponseEntity.ok().body(newsModel.get());
+		Optional<Publication> publication = publicationService.findById(id);
+		if(publication.isPresent()) {
+			return ResponseEntity.ok().body(publication.get());
 		}
 		return ResponseEntity.notFound().build();
 	}
 
-	// TODO: return URI
+	// TODO: change to created
 	@PostMapping("/api/publication")
 	public ResponseEntity<Publication> publish(@RequestBody PublicationDto news) {
 		Publication publication = publicationService.savePublication(news);
@@ -41,8 +41,7 @@ public class NewsController {
 	}
 
 	@ExceptionHandler(ClassCastException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ResponseEntity<String> handleNoSuchElementFoundException(ClassCastException exception) {
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("An error ocurred during your request. Please contract an administrator.");
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("An error ocurred during your request. Please contract an administrator.");
 	}
 }

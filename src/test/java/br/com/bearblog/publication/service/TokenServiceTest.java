@@ -1,6 +1,6 @@
 package br.com.bearblog.publication.service;
 
-import br.com.bearblog.publication.security.LoginDto;
+import br.com.bearblog.publication.dto.LoginDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
