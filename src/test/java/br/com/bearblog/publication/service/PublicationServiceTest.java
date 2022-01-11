@@ -1,10 +1,9 @@
 package br.com.bearblog.publication.service;
 
-import br.com.bearblog.publication.repository.PublicationRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import br.com.bearblog.publication.dto.PublicationDto;
 import br.com.bearblog.publication.model.Publication;
-import br.com.bearblog.publication.service.PublicationService;
+import br.com.bearblog.publication.repository.PublicationRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
