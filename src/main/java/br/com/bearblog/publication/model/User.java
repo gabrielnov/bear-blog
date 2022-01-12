@@ -45,7 +45,6 @@ public class User implements UserDetails {
     public void setPassword(String password){
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         this.password = bCryptPasswordEncoder.encode(password);
-        System.out.printf("Senha %s\n ", this.password);
     }
 
     @Override
