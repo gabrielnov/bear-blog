@@ -12,66 +12,25 @@ import java.util.Collection;
 import java.util.Set;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "User")
-public class User implements UserDetails {
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"username"}),
+        @UniqueConstraint(columnNames = {"email"})
+})
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String password;
+    private long id;
+    private String name;
+    private String username;
     private String email;
+    private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Profile> profiles;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.profiles;
-    }
-
-    @Override
-    public String getPassword() {
-        return null;
-    }
-
-    public void setPassword(String password){
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        this.password = bCryptPasswordEncoder.encode(password);
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
-    }
-
-
-
+    private Set<Role> roles;
 }
